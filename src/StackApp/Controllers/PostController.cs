@@ -33,6 +33,7 @@ namespace StackApp.Controllers
         public IActionResult Detail(int id)
         {
             var thisPost = _db.Questions
+                .Include(posts => posts.Comments)
                 .Include(posts => posts.Answers)
                 .ThenInclude(answers => answers.User)
                 .FirstOrDefault(posts => posts.Id == id);
@@ -75,6 +76,19 @@ namespace StackApp.Controllers
             answer.Id = 0;
             _db.Answers.Add(answer);
             _db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<IActionResult> AddComment(Comment comment)
+        {
+            
+            var isQuestion = this.Request.Form["isQuestion"];
+            if(isQuestion != "")
+            {
+               
+            }
             return RedirectToAction("Index");
         }
     }

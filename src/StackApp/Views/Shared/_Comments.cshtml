@@ -1,0 +1,10 @@
+﻿@model IEnumerable<StackApp.Models.Comment>
+
+<h3>Comments</h3>
+<div>
+        @foreach (var comment in Model)
+        {
+            <h3>@comment.User.UserName says,</h3>
+            <h2>@comment.Content</h2>
+        }
+</div>

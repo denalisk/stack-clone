@@ -7,7 +7,32 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <ul>
+                    <li><a href="/post">Posts</a></li>
+                    <li><a href="/post/CreateQuestion">Ask a Question</a></li>
+                    <li>
+                        @if(User.Identity.IsAuthenticated)
+                        {
+                            @using (Html.BeginForm("Logoff", "Account"))
+                                    {
+                                    <input type = "submit" class="btn btn-danger" value="Log Out" />
+                                    }
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Login", "Login", "Account")
+                        }
 
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
     <div>
         @RenderBody()
     </div>

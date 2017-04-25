@@ -1,0 +1,13 @@
+﻿@model StackApp.Models.Comment
+
+@using (Html.BeginForm("AddComment", "Post"))
+{
+    @Html.Hidden("PostId")
+    @Html.Hidden("IsQuestion")
+
+    @Html.LabelFor(model => model.Content, "Your Comment")
+    @Html.TextBoxFor(model => model.Content)
+
+    <input type="submit" value="Add Comment" />
+
+}

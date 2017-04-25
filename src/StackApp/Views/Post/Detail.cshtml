@@ -1,7 +1,8 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@using StackApp.Models
+@using StackApp.ViewComponents
 @model StackApp.Models.Question
 
 <h1>@Html.DisplayFor(model => model.User.UserName) asks, </h1>
@@ -14,7 +15,7 @@
     <ul>
         @foreach (var listItem in Model.Answers)
         {
-            <h3>@Html.DisplayFor(modelItem => listItem.User.UserName) says:</h3>
+            @Html.DisplayFor(modelItem => listItem.User.UserName) says:
             <li>@Html.DisplayFor(modelItem => listItem.Content)</li>
         }
     </ul>
@@ -23,6 +24,11 @@ else
 {
     <p>No Answers Yet!</p>
 }
+<h2>Comments about this question</h2>
+@Html.Partial("_Comments", Model.Comments)
+<hr />
+<h2>Add a Comment for this Question</h2>
+@Html.Partial("_CommentForm", new StackApp.Models.Comment(), new ViewDataDictionary(new Microsoft.AspNetCore.Mvc.ModelBinding.EmptyModelMetadataProvider(), new Microsoft.AspNetCore.Mvc.ModelBinding.ModelStateDictionary()) { { "PostId", Model.Id }, {"isQuestion", true } })
 
-@Html.ActionLink("CreateAnswer", "Add an Answer", new { id = Model.Id})
+@Html.ActionLink("Add an Answer", "CreateAnswer", new { id = Model.Id })
 

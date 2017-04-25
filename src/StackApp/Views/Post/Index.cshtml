@@ -14,7 +14,7 @@
         @foreach (var listItem in Model)
         {
             <li>@Html.DisplayFor(modelItem => listItem.Title)</li>
-            <p>@Html.DisplayFor(model => listItem.Content)</p>
+            <h3>@Html.DisplayFor(model => listItem.Content)</h3>
             @Html.ActionLink("Checkout this Question", "Detail", new { id = listItem.Id })
             <br />
             @Html.ActionLink("Add an Answer", "CreateAnswer", new { id = listItem.Id })
