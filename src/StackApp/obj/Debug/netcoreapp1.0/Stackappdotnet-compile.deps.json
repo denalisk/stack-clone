@@ -14,7 +14,7 @@
   },
   "targets": {
     ".NETCoreApp,Version=v1.0": {
-      "Stackapp/1.0.0": {
+      "StackApp/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
@@ -29,7 +29,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0"
         },
         "compile": {
-          "Stackapp.dll": {}
+          "StackApp.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -2725,7 +2725,7 @@
       }
     },
     ".NETCoreApp,Version=v1.0/": {
-      "Stackapp/1.0.0": {
+      "StackApp/1.0.0": {
         "dependencies": {
           "Microsoft.NETCore.App": "1.0.1",
           "Microsoft.AspNetCore.Diagnostics": "1.0.0",
@@ -2740,7 +2740,7 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "1.0.0"
         },
         "runtime": {
-          "Stackapp.dll": {}
+          "StackApp.dll": {}
         }
       },
       "Libuv/1.9.0": {
@@ -5344,7 +5344,7 @@
     }
   },
   "libraries": {
-    "Stackapp/1.0.0": {
+    "StackApp/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

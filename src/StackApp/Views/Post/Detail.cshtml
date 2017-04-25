@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackApp.Models.Question
+
+<h1>@Html.DisplayFor(model => model.User.UserName) asks, </h1>
+<h3>@Html.DisplayFor(model => model.Content)?</h3>
+
+<hr />
+
+@if (Model.Answers.Any())
+{
+    <ul>
+        @foreach (var listItem in Model.Answers)
+        {
+            <h3>@Html.DisplayFor(modelItem => listItem.User.UserName) says:</h3>
+            <li>@Html.DisplayFor(modelItem => listItem.Content)</li>
+        }
+    </ul>
+}
+else
+{
+    <p>No Answers Yet!</p>
+}
+
+@Html.ActionLink("CreateAnswer", "Add an Answer", new { id = Model.Id})
+

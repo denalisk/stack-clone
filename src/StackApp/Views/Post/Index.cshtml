@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<StackApp.Models.Question>
+
+<h2>Posts</h2>
+
+<hr />
+
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listItem in Model)
+        {
+            <li>@Html.DisplayFor(modelItem => listItem.Title)</li>
+            <p>@Html.DisplayFor(model => listItem.Content)</p>
+            @Html.ActionLink("Checkout this Question", "Detail", new { id = listItem.Id })
+            <br />
+            @Html.ActionLink("Add an Answer", "CreateAnswer", new { id = listItem.Id })
+        }
+    </ul>
+}
+else
+{
+    <p>No Posts Today!</p>
+}

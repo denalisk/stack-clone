@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackApp.Models.Answer
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Question.Id)
+
+    <h2>Answer @Model.Question.User.UserName's question!!</h2>
+    @Html.LabelFor(model => model.Content, "Your Answer")
+    @Html.TextBoxFor(model => model.Content)
+
+    <input type="submit" value="Add Answer!" />
+}

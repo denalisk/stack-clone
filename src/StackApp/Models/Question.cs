@@ -10,8 +10,6 @@ namespace StackApp.Models
     [Table("Questions")]
     public class Question: Post
     {
-        [Key]
-        public int Id { get; set; }
         public string Title { get; set; }
         public virtual ICollection<Answer> Answers { get; set; }
     }

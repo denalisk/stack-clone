@@ -1,0 +1,16 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model StackApp.Models.Question
+<h2>Ask A Question</h2>
+
+<hr />
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(model => model.Content)
+    @Html.EditorFor(model => model.Content)
+    <input type="submit" value="Create" />
+}
+@Html.ActionLink("Back to List", "Index")
